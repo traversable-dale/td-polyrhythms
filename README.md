@@ -1,6 +1,8 @@
 # TD Polyrhythms
 
-I love sound generators. Sound generators at home, at work, while traveling- having a familiar sound to fill the void always brings me comfort. There are two creators who I have gone back to over the years and owe inspiration for this work:
+I love sound generators. 
+
+Sound generators at home, at work, while traveling- having a familiar sound to fill the void always brings me comfort. There are two creators who I have gone back to over the years and owe inspiration for this work:
 
 Stéphane Pigeon: https://mynoise.net/
 
