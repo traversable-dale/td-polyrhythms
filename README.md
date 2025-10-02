@@ -10,6 +10,8 @@ It began as an experiment a few years ago, with additional features planned for 
 
 ## 🟦 Network Breakdown
 
+![ref network](assets/img/ref/ref-network.png)  
+
 - **`op.config`** – *handles onStart logic, holds all timers, controls project resolution*  
   - **Timers inside:**  
     - `timer_splash_startup`  
@@ -21,28 +23,30 @@ It began as an experiment a few years ago, with additional features planned for 
   - **Keyboard input:**  
     - Press **`q`** + **`shift`** → cycle through audio folders (inside the main audio folder)  
 
-- **`op.GUI`** – *main program GUI*  
-  - **`op.ctrl_GUI`** – *sub-component for GUI-level controls*  
-  - **Help Screen** – appears on program start whenever GUI is visible (*trigger-based popup*)  
+- **`op.splash`** – *startup splash screen graphic with “Start” button*  
+
+
+![ref network 2](assets/img/ref/ref-network-2.png)
 
 - **`op.vis`** – *main visualization output (TOPs)*  
   - **`op.colors`** – *4 beat-linked colors + 5th background color*  
   - **`op.beat`** – *LFOs and counters driving polyrhythms*  
   - **`op.shapes`** – *circle visuals orbiting a center point, with feedback trails*  
   - **`op.background`** – *dynamic background visuals*  
-  - **`op.comp`** – *further compositing; includes look1/look2 switching*  
+  - **`op.comp`** – *further compositing; includes look1/look2 switching* 
+
+![ref network 3](assets/img/ref/ref-network-3.png)
+
+- **`op.GUI`** – *main program GUI*  
+  - **`op.ctrl_GUI`** – *sub-component for GUI-level controls*  
+  - **Help Screen** – appears on program start whenever GUI is visible (*trigger-based popup*)  
+
+![ref network 4](assets/img/ref/ref-network-4.png)
 
 - **`op.audio`** – *audio playback network with Python extension control*  
   - **`folder_audio`** – *main audio folder reference (externalized parameter)*  
   - *Inside this folder: subfolders by instrument*  
-  - *First 4 files from each instrument subfolder are chosen for playback*  
-
-- **`op.splash`** – *startup splash screen graphic with “Start” button*  
-
-![ref network](assets/img/ref/ref-network.png)  
-![ref network 2](assets/img/ref/ref-network-2.png)
-![ref network 3](assets/img/ref/ref-network-3.png)
-![ref network 4](assets/img/ref/ref-network-4.png)
+  - *First 4 files from each instrument subfolder are chosen for playback* 
 
 ---
 
