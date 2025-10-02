@@ -120,8 +120,9 @@ It began as an experiment a few years ago, with additional features planned for 
 
 ## 🟪 Controls
 
-- **Slider** (*inside `op.ctrl`*) → sets polyrhythm speed (0 → 1)  
-- **Splash screen button** (*inside `op.splash`*) → starts main program  
+- **Splash screen button** (*inside `op.splash`*) → starts main program
+- **Slider X:** `slider_speed` (*adjusts polyrhythm speed, 0 → 1*)  
+- **Slider Y:** `insidev` (*adjusts audio filters low + high*) 
 - **Keyboard input:**  
   - `q` + `shift` → cycle through instrument subfolders inside `op.audio.op('folder_audio')`  
 
