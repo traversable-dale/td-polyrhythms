@@ -2,19 +2,7 @@
 
 ![ref app](assets/img/ref/ref-app.png)
 
-I love sound generators. Sound generators at home, at work, while traveling- having a familiar sound to fill the void always brings me comfort. There are two creators who I have gone back to over the years and owe inspiration for this work:
-
-Stéphane Pigeon: https://mynoise.net/
-
-Lucid Rhythms: https://www.youtube.com/@LucidRhythms
-
-Polyrhythms have always struck me as something special- existing somewhere between music and random sound. Something like an abstract clock. Predictable, yet chaotic at times. 
-
-It's always a joy to get lost in the rhythm, when all of a sudden- the chord!
-
----
-
-This project is a **TouchDesigner-based audiovisual system** that blends *polyrhythms* and *generative visuals* as a standalone desktop app. 
+This project is a **TouchDesigner-based audiovisual system** that blends *polyrhythmic beats*, *generative visuals*, and *audio playback*.  
 
 It began as an experiment a few years ago, with additional features planned for the future.
 
@@ -31,50 +19,63 @@ It began as an experiment a few years ago, with additional features planned for 
     - `timer_GUI_open`
 
 - **`op.ctrl`** – *user interface and input controls*  
-  - **Slider:** `slider_speed` (*adjusts system tempo*)  
+  - **Slider X:** `slider_speed` (*adjusts polyrhythm speed, 0 → 1*)  
+  - **Slider Y:** `insidev` (*adjusts audio filters low + high*)
   - **Keyboard input:**  
-    - Press **`q`** + **`shift`** → cycle through audio folders (inside the main audio folder)  
+    - Press **`q` + `shift`** → cycle through instrument subfolders inside `op.audio.op('folder_audio')`  
 
 - **`op.splash`** – *startup splash screen graphic with “Start” button*  
-
-
-![ref network 2](assets/img/ref/ref-network-2.png)
-
-- **`op.vis`** – *main visualization output (TOPs)*  
-  - **`op.colors`** – *4 beat-linked colors + 5th background color*  
-  - **`op.beat`** – *LFOs and counters driving polyrhythms*  
-  - **`op.shapes`** – *circle visuals orbiting a center point, with feedback trails*  
-  - **`op.background`** – *dynamic background visuals*  
-  - **`op.comp`** – *further compositing; includes look1/look2 switching* 
 
 ![ref network 3](assets/img/ref/ref-network-3.png)
 
 - **`op.GUI`** – *main program GUI*  
   - **`op.ctrl_GUI`** – *sub-component for GUI-level controls*  
-  - **`select_vis`** – *select COMP for vis placement* 
-  - **`select_slider`** – *select comp for slider element | depth layer 100* 
-  - **Help Screen** – appears on program start whenever GUI is activated (*trigger-based popup*)  
+  - **Help Screen** – appears on program start whenever GUI is displayed (*trigger-based popup*)  
+  
+
+![ref network 2](assets/img/ref/ref-network-2.png)
+
+- **`op.vis`** – *main visualization output (TOPs)*  
+  - **`op.colors`** – *4 beat-linked colors + 5th background color*  
+  - **`op.shapes`** – *circle visuals orbiting a center point, with feedback trails*  
+  - **`op.background`** – *dynamic background visuals*  
+  - **`op.comp`** – *further compositing; includes look1/look2 switching*  
 
 ![ref network 4](assets/img/ref/ref-network-4.png)
 
 - **`op.audio`** – *audio playback network with Python extension control*  
-  - **`folder_audio`** – *main audio folder reference (externalized parameter)*  
+  - **`folder_audio`** – *externalized parameter for the main audio folder*  
   - *Inside this folder: subfolders by instrument*  
-  - *First 4 files from each instrument subfolder are chosen for playback* 
+  - *First 4 files from each instrument subfolder are chosen for playback*  
+
+![ref network 5](assets/img/ref/ref-network-5.png)
+
+- **`op.polyrhythm`** – *core rhythm logic (base level of network)*  
+  - **How it works:**  
+    - The `slider_speed` value is broken out over 4 nodes in `op.ctrl` and sent to `op.shapes`.  
+    - **Rotation multipliers:** `1`, `0.9`, `0.8`, `0.7`  
+    - **Distance multipliers:** `1`, `0.8`, `0.6`, `0.4`  
+    - Rotation multipliers also drive LFO frequency.  
+    - All LFOs are pulsed together on start → frequencies stagger to create the polyrhythm.  
+    - Inside, a network of *logic CHOPs* detects when shapes hit **0%** or **50%**.  
+    - These events trigger math chains that send signals to **`op.colors`** and **`op.audio`** → driving color changes and sound playback.  
+    - Count CHOPs track cycles and advance through colors.  
 
 ---
 
 ## 🟩 Python Extensions
 
-- **`module_GUI.py`** – *manages splash screen and GUI transitions*  
-  - `Startup()` – shows splash, initializes timers  
+- **`module_GUI.py`**:contentReference[oaicite:0]{index=0} – *manages splash screen and GUI transitions*  
+  - `Startup()` – initializes splash and timers  
   - `ExitSplash()` – runs exit splash timer  
-  - `OpenProgram()` – reveals GUI, fades in visuals, starts audio, shows help screen  
+  - `OpenProgram()` – reveals GUI, fades in visuals, starts audio, syncs polyrhythm  
 
-- **`module_audio.py`** – *controls audio operators listed in `select_audio_files`*  
+- **`module_audio.py`**:contentReference[oaicite:1]{index=1} – *controls audio operators listed in `select_audio_files`*  
   - `StopAudio()` – stops all audio (`play = 0`)  
   - `PlayAudio()` – starts all audio (`play = 1`)  
-  - *Audio folder cycling logic now tied to keyboard input (`q` + `shift`)*  
+
+- **`module_polyrhythm.py`**:contentReference[oaicite:2]{index=2} – *synchronizes LFOs and rhythm reset*  
+  - `SyncRhythms()` – pulses all LFO reset channels listed in `select_lfos`  
 
 ---
 
@@ -98,6 +99,7 @@ It began as an experiment a few years ago, with additional features planned for 
    - GUI revealed (`op.GUI`)  
    - Visuals fade in (`op.vis`)  
    - Audio playback begins (`PlayAudio()`)  
+   - Polyrhythm synced (`SyncRhythms()`)  
    - Help screen pops up (triggered when GUI is True)  
 
 ![ref help](assets/img/ref/ref-help.png)
@@ -106,15 +108,16 @@ It began as an experiment a few years ago, with additional features planned for 
 
 ## 🟪 Controls
 
-- **`slider_speed`** (*inside `op.ctrl`*) → adjusts polyrhythm tempo  
+- **Slider** (*inside `op.ctrl`*) → sets polyrhythm speed (0 → 1)  
 - **Splash screen button** (*inside `op.splash`*) → starts main program  
 - **Keyboard input:**  
-  - `q` + `shift` → cycle through audio instrument folders inside `op.audio.op('folder_audio')`  
+  - `q` + `shift` → cycle through instrument subfolders inside `op.audio.op('folder_audio')`  
 
 ---
 
+
 ## ⬜ Future Plans
-- Expanded user controls (filters, effects) 
+- Expanded user controls
 - Menu system
 - Additional visual styles
 - Additional audio samples
