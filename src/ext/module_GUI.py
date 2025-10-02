@@ -5,16 +5,13 @@ class module_GUI :
 	def __init__ (self, ownerComp):
 		self.ownerComp = ownerComp
 		
-	def Test(self):
-		print("testing testing 1 2 3")
-		
 	def Startup(self):
 		#On startup TouchDesigner should open to splash screen
 		#After Splash screen there should be a loading screen
 		#Program opens fullscreen after that
 		print(f"GUI | Startup(): {me.name}")
-		op.splash.op('splash_ctrl')['opacity','val'] = 0
-		op.splash.op('filter_opacity').par.width = 0
+		op.ctrl_splash.op('splash_ctrl')['opacity','val'] = 0
+		op.ctrl_splash.op('filter_opacity').par.width = 0
 		op.config.op('timer_splash_startup').par.start.pulse()
 		op.splash.par.display = 1
 
@@ -36,6 +33,6 @@ class module_GUI :
 		op.GUI.par.display = 1
 		op.vis.par.opacity = 1
 		op.config.op('timer_GUI_open').par.start.pulse()
-		op.GUI.op('GUI_ctrl')['opacity','val'] = 1
+		op.ctrl_GUI.op('GUI_ctrl')['opacity','val'] = 1
 		op.audio.PlayAudio()
 		pass
