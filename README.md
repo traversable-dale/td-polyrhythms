@@ -114,7 +114,8 @@ It began as an experiment a few years ago, with additional features planned for 
 ---
 
 ## ⬜ Future Plans
-- Expanded user controls (beyond tempo).  
-- Additional polyrhythm visual styles.  
-- Audio-reactive modes.  
-- Modular visual/audio layering options.  
+- Expanded user controls (filters, effects) 
+- Menu system
+- Additional visual styles
+- Additional audio samples
+- Upgrade op.beat clock from LFOs to replicators
