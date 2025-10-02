@@ -1,6 +1,8 @@
 # Polyrhythm Visualizer
 
-![Splash Screen](assets/img/splash/splash-screen_polyrhythms.png)
+![ref splash](assets/img/ref/refsplash.png)
+
+![ref app](assets/img/ref/ref-app.png)
 
 This project is a **TouchDesigner-based audiovisual system** that blends *polyrhythmic beats*, *generative visuals*, and *audio playback*.
 
