@@ -28,6 +28,7 @@ It began as an experiment a few years ago, with additional features planned for 
 - **`op.splash`** – *startup splash screen graphic with “Start” button*  
 
 ![ref network](assets/img/ref/ref-network.png)
+![ref network 2](assets/img/ref/ref-network-2.png)
 
 ---
 
