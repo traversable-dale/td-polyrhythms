@@ -35,4 +35,5 @@ class module_GUI :
 		op.config.op('timer_GUI_open').par.start.pulse()
 		op.ctrl_GUI.op('GUI_ctrl')['opacity','val'] = 1
 		op.audio.PlayAudio()
+		op.polyrhythm.SyncRhythms()
 		pass
