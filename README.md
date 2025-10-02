@@ -41,6 +41,8 @@ It began as an experiment a few years ago, with additional features planned for 
 
 ![ref network](assets/img/ref/ref-network.png)  
 ![ref network 2](assets/img/ref/ref-network-2.png)
+![ref network 3](assets/img/ref/ref-network-3.png)
+![ref network 4](assets/img/ref/ref-network-4.png)
 
 ---
 
@@ -68,8 +70,6 @@ It began as an experiment a few years ago, with additional features planned for 
 - **`timer_splash_startup_callbacks.py`** – *startup transition into main program*  
 
 ---
-
-![ref splash](assets/img/ref/ref-splash.png)  
 
 ## 🟨 Startup Flow
 
