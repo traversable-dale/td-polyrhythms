@@ -1,5 +1,17 @@
 # TD Polyrhythms
 
+I love sound generators. Sound generators at home, at work, while traveling- having a familiar sound to fill the void always brings me comfort. There are two creators who I have gone back to over the years and owe inspiration for this work:
+
+Stéphane Pigeon: https://mynoise.net/
+
+Lucid Rhythms: https://www.youtube.com/@LucidRhythms
+
+Polyrhythms have always struck me as something special- existing somewhere between music and random sound. Something like an abstract clock. Predictable, yet chaotic at times.
+
+It's always a joy to get lost in the rhythm, when all of a sudden- the chord!
+
+---
+
 ![ref app](assets/img/ref/ref-app.png)
 
 This project is a **TouchDesigner-based audiovisual system** that blends *polyrhythmic beats*, *generative visuals*, and *audio playback*.  
