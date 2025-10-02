@@ -134,4 +134,3 @@ It began as an experiment a few years ago, with additional features planned for 
 - Menu system
 - Additional visual styles
 - Additional audio samples
-- Upgrade op.beat clock from LFOs to replicators
