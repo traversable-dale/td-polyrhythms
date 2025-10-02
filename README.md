@@ -3,11 +3,12 @@
 ![ref app](assets/img/ref/ref-app.png)
 
 This project is a **TouchDesigner-based audiovisual system** that blends *polyrhythmic beats*, *generative visuals*, and *audio playback*.  
+
 It began as an experiment a few years ago, with additional features planned for the future.
 
 ---
 
-## 📂 Network Breakdown
+## 🟦 Network Breakdown
 
 - **`op.config`** – *handles onStart logic, holds all timers, controls project resolution*  
   - **Timers inside:**  
@@ -27,12 +28,12 @@ It began as an experiment a few years ago, with additional features planned for 
 
 - **`op.splash`** – *startup splash screen graphic with “Start” button*  
 
-![ref network](assets/img/ref/ref-network.png)
+![ref network](assets/img/ref/ref-network.png)  
 ![ref network 2](assets/img/ref/ref-network-2.png)
 
 ---
 
-## 🐍 Python Extensions
+## 🟩 Python Extensions
 
 - **`module_GUI.py`** – *manages splash screen and GUI transitions*  
   - `Test()` – debug function  
@@ -46,7 +47,7 @@ It began as an experiment a few years ago, with additional features planned for 
 
 ---
 
-## 📑 DAT Scripts
+## 🟥 DAT Scripts
 
 - **`chopexec_slider_speed.py`** – *updates tempo when slider changes*  
 - **`execute_config.py`** – *startup/shutdown logic in `op.config`*  
@@ -57,7 +58,7 @@ It began as an experiment a few years ago, with additional features planned for 
 
 ---
 
-## 🚀 Startup Flow
+## 🟨 Startup Flow
 
 1. **Launch project** → `op.config` calls `Startup()`  
 2. **Splash screen appears** → `op.splash` displayed  
@@ -71,14 +72,14 @@ It began as an experiment a few years ago, with additional features planned for 
 
 ---
 
-## 🎛 Controls
+## 🟪 Controls
 
 - **`slider_speed`** (*inside `op.ctrl`*) → adjusts polyrhythm tempo  
 - **Splash screen button** (*inside `op.splash`*) → starts main program  
 
 ---
 
-## 🖼 Future Plans
+## ⬜ Future Plans
 - Expanded user controls (beyond tempo).  
 - Additional polyrhythm visual styles.  
 - Audio-reactive modes.  
