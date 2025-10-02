@@ -16,15 +16,26 @@ It began as an experiment a few years ago, with additional features planned for 
     - `timer_splash_exit`  
     - `timer_GUI_open`
 
-- **`op.ctrl`** – *UI elements for user control (currently only `slider_speed`)*  
+- **`op.ctrl`** – *user interface and input controls*  
+  - **Slider:** `slider_speed` (*adjusts system tempo*)  
+  - **Keyboard input:**  
+    - Press **`q`** + **`shift`** → cycle through audio folders (inside the main audio folder)  
+
+- **`op.GUI`** – *main program GUI*  
+  - **`op.ctrl_GUI`** – *sub-component for GUI-level controls*  
+  - **Help Screen** – appears on program start whenever GUI is visible (*trigger-based popup*)  
 
 - **`op.vis`** – *main visualization output (TOPs)*  
   - **`op.colors`** – *4 beat-linked colors + 5th background color*  
   - **`op.beat`** – *LFOs and counters driving polyrhythms*  
   - **`op.shapes`** – *circle visuals orbiting a center point, with feedback trails*  
   - **`op.background`** – *dynamic background visuals*  
+  - **`op.comp`** – *further compositing; includes look1/look2 switching*  
 
 - **`op.audio`** – *audio playback network with Python extension control*  
+  - **`folder_audio`** – *main audio folder reference (externalized parameter)*  
+  - *Inside this folder: subfolders by instrument*  
+  - *First 4 files from each instrument subfolder are chosen for playback*  
 
 - **`op.splash`** – *startup splash screen graphic with “Start” button*  
 
@@ -36,14 +47,14 @@ It began as an experiment a few years ago, with additional features planned for 
 ## 🟩 Python Extensions
 
 - **`module_GUI.py`** – *manages splash screen and GUI transitions*  
-  - `Test()` – debug function  
   - `Startup()` – shows splash, initializes timers  
   - `ExitSplash()` – runs exit splash timer  
-  - `OpenProgram()` – reveals GUI, fades in visuals, starts audio  
+  - `OpenProgram()` – reveals GUI, fades in visuals, starts audio, shows help screen  
 
 - **`module_audio.py`** – *controls audio operators listed in `select_audio_files`*  
   - `StopAudio()` – stops all audio (`play = 0`)  
   - `PlayAudio()` – starts all audio (`play = 1`)  
+  - *Audio folder cycling logic now tied to keyboard input (`q` + `shift`)*  
 
 ---
 
@@ -58,6 +69,8 @@ It began as an experiment a few years ago, with additional features planned for 
 
 ---
 
+![ref splash](assets/img/ref/ref-splash.png)  
+
 ## 🟨 Startup Flow
 
 1. **Launch project** → `op.config` calls `Startup()`  
@@ -67,8 +80,9 @@ It began as an experiment a few years ago, with additional features planned for 
    - GUI revealed (`op.GUI`)  
    - Visuals fade in (`op.vis`)  
    - Audio playback begins (`PlayAudio()`)  
+   - Help screen pops up (triggered when GUI is True)  
 
-![ref splash](assets/img/ref/ref-splash.png)
+![ref help](assets/img/ref/ref-help.png)
 
 ---
 
@@ -76,6 +90,8 @@ It began as an experiment a few years ago, with additional features planned for 
 
 - **`slider_speed`** (*inside `op.ctrl`*) → adjusts polyrhythm tempo  
 - **Splash screen button** (*inside `op.splash`*) → starts main program  
+- **Keyboard input:**  
+  - `q` + `shift` → cycle through audio instrument folders inside `op.audio.op('folder_audio')`  
 
 ---
 
