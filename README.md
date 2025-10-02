@@ -39,7 +39,9 @@ It began as an experiment a few years ago, with additional features planned for 
 
 - **`op.GUI`** – *main program GUI*  
   - **`op.ctrl_GUI`** – *sub-component for GUI-level controls*  
-  - **Help Screen** – appears on program start whenever GUI is visible (*trigger-based popup*)  
+  - **`select_vis`** – *select COMP for vis placement* 
+  - **`select_slider`** – *select comp for slider element | depth layer 100* 
+  - **Help Screen** – appears on program start whenever GUI is activated (*trigger-based popup*)  
 
 ![ref network 4](assets/img/ref/ref-network-4.png)
 
