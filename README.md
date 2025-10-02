@@ -2,16 +2,19 @@
 
 ![ref app](assets/img/ref/ref-app.png)
 
-I love sound generators. Ambient sound at home, at work, while traveling- having a familiar sound to fill the void always brings me comfort. There are many wonderful creators who have inspired this endeavor:
+I love sound generators. Sound generators at home, at work, while traveling- having a familiar sound to fill the void always brings me comfort. There are two creators who I have gone back to over the years and owe inspiration for this work:
 
 Stéphane Pigeon: https://mynoise.net/
+
 Lucid Rhythms: https://www.youtube.com/@LucidRhythms
 
 Polyrhythms have always struck me as something special- existing somewhere between music and random sound. Something like an abstract clock. Predictable, yet chaotic at times. 
 
 It's always a joy to get lost in the rhythm, when all of a sudden- the chord!
 
-This project is a **TouchDesigner-based audiovisual system** that blends *polyrhythms* and *generative visuals* for a standalone ambient audio desktop app. 
+---
+
+This project is a **TouchDesigner-based audiovisual system** that blends *polyrhythms* and *generative visuals* as a standalone desktop app. 
 
 It began as an experiment a few years ago, with additional features planned for the future.
 
