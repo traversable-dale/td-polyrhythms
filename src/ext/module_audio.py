@@ -6,7 +6,7 @@ class module_audio :
 		self.ownerComp = ownerComp
 		
 	def StopAudio(self):
-		print(f"AUDIO | StopAudio(): {me.name}")
+		print(f"AUDIO      | StopAudio(): {me.name}")
 		table = op('select_audio_files')
 		for row in table.rows():
 			op_name = row[0].val  # value from column 0
@@ -16,7 +16,7 @@ class module_audio :
 		return
 	
 	def PlayAudio(self):
-		print(f"AUDIO | StartAudio(): {me.name}")
+		print(f"AUDIO      | StartAudio(): {me.name}")
 		table = op('select_audio_files')
 		for row in table.rows():
 			op_name = row[0].val  # value from column 0

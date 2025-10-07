@@ -9,10 +9,10 @@ class module_GUI :
 		#On startup TouchDesigner should open to splash screen
 		#After Splash screen there should be a loading screen
 		#Program opens fullscreen after that
-		print(f"GUI | Startup(): {me.name}")
+		print(f"GUI        | Startup(): {me.name}")
 		op.ctrl_splash.op('splash_ctrl')['opacity','val'] = 0
 		op.ctrl_splash.op('filter_opacity').par.width = 0
-		op.config.op('timer_splash_startup').par.start.pulse()
+		
 		op.splash.par.display = 1
 
 		op.GUI.par.display = 0
@@ -29,11 +29,12 @@ class module_GUI :
 	
 	def OpenProgram(self):
 		#open program upon exiting splash screen
-		print(f"GUI | OpenProgram(): {me.name}")
+		print(f"GUI        | OpenProgram(): {me.name}")
 		op.GUI.par.display = 1
 		op.vis.par.opacity = 1
 		op.config.op('timer_GUI_open').par.start.pulse()
 		op.ctrl_GUI.op('GUI_ctrl')['opacity','val'] = 1
 		op.audio.PlayAudio()
 		op.polyrhythm.SyncRhythms()
+		op.folders_vis.op('trigger_opacity').par.triggerpulse.pulse()
 		pass
